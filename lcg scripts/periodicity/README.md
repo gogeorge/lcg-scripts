@@ -1,12 +1,12 @@
 
-- periodicity_of_the_lcg.js
+- ```periodicity_of_the_lcg.js```
 
 This script finds the period length of a LCG. More details can be found as comments in the file 
 
-- period_visualization.html	
+- ```period_visualization.html```
 
 This script generates an image of the lcg. If there is a pattern in the image then the period length is short and the lcg is not effective
 
-- lcg_visualization.png	
+- ```lcg_visualization.png```	
 
 The image that was generated from ```period_visualization.html``` script
