@@ -11,8 +11,8 @@ of a linear congruential generator.
 // Xn = aXn-1 + c (mod m)
 
 var a = 11
-    c = 34
-    m = 103
+	c = 34
+	m = 103
 
 // first two random numbers in the series
 X = [57, 43]

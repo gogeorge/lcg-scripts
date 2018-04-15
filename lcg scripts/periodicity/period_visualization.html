@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<canvas id='canvas' height='300px'></canvas>
+<script>
+  /*
+  script was inspired by this video: 
+  https://www.youtube.com/watch?v=4sYawx70iP4&ab_channel=CodingMath
+  */
+  var a = 11
+      c = 34
+      m = 103
+      X1 = 57
+
+  function nextRand() {
+    X1 = (a * X1 + c) % m
+    return X1
+  }
+
+  function nextRandFloat() {
+    return nextRand() / m
+  }
+
+
+  var canvas = document.getElementById("canvas")
+      context = canvas.getContext("2d")
+
+  var y = 0
+  draw();
+  function draw() {
+    for ( x = 0; x < 1000; x++ ) {
+      if( nextRandFloat() < 0.5 ) context.fillRect(x, y, 1, 1)
+    }
+    y++
+    if( y < 600 ) requestAnimationFrame(draw)
+  }
+</script>
+</html>
+
