@@ -13,25 +13,33 @@
     <script type="text/javascript">
 btn.onclick = function() {
 	$.getJSON( "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=3ff99349c37e7ee1a6c2395c0a979bf5&format=json&nojsoncallback=1&api_sig=0f16a53ef77fc3b135a887598d9c6fb3", function( data ) {
-	//console.log(data.photos.photo[0].id)
-	//var user_id = data.photos.photo[0].owner;
+	/*
+	from flickr's api we get the id of one of the recent public photos that were uploaded on flickr
+	*/
 	var photo_id = data.photos.photo[0].id
 
 	$.getJSON("http://api.open-notify.org/iss-now.json", function( data2 ) {
+		// latitude of the ISS
 		var latitude = data2.iss_position.latitude
 		//console.log(latitude)
-
+		/* - multiply the number of the photo_id with the latitude of the ISS
+		   - the "" at the end is to make the variable into a string
+		   - there are more proffesional ways to turn a int to a string but i cant be bothered
+		*/
 		var random_large = photo_id * latitude + ""
+		/*
+		   - now we get the positive value of the random_large variable
+		   - then get the 3rd,4th,5th,6th and 7th digits
+		   - those 5 digits are now the random number: var random
+		   - sometimes it might be less than 5 digits
+		*/
 		var random = Math.abs(random_large.substring(3, 7))
+		
 		rand_list.innerHTML += random + ", "
 		//console.log("random_large: " + random_large)
-		console.log("random: " + random)
+		//console.log("random: " + random)
 
 	})
-
-	//var url = "https://www.flickr.com/photos/" + user_id + "/" + photo_id
-	//console.log(url)
-	//$('body').css('background-image', "url('" + url + "')")
 });
 }
 
