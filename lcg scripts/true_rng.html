@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+
+<button id='btn'>Generate A Random Number</button>
+<br><br>
+<p id='rand_list'></p>
+
+</body>
+    <script type="text/javascript">
+btn.onclick = function() {
+	$.getJSON( "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=3ff99349c37e7ee1a6c2395c0a979bf5&format=json&nojsoncallback=1&api_sig=0f16a53ef77fc3b135a887598d9c6fb3", function( data ) {
+	//console.log(data.photos.photo[0].id)
+	//var user_id = data.photos.photo[0].owner;
+	var photo_id = data.photos.photo[0].id
+
+	$.getJSON("http://api.open-notify.org/iss-now.json", function( data2 ) {
+		var latitude = data2.iss_position.latitude
+		//console.log(latitude)
+
+		var random_large = photo_id * latitude + ""
+		var random = Math.abs(random_large.substring(3, 7))
+		rand_list.innerHTML += random + ", "
+		//console.log("random_large: " + random_large)
+		console.log("random: " + random)
+
+	})
+
+	//var url = "https://www.flickr.com/photos/" + user_id + "/" + photo_id
+	//console.log(url)
+	//$('body').css('background-image', "url('" + url + "')")
+});
+}
+
+    </script>
+</html>
