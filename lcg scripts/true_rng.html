@@ -22,6 +22,26 @@
     		font-weight: lighter;
     		font-size: 20px;
     	}
+    	#btn2 {
+    		border: none;
+    		width: 500px;
+    		height: 70px;
+    		border-radius: 10px;
+    		background-color: lightskyblue;
+    		color: white;
+    		font-family: Helvetica;
+    		font-weight: lighter;
+    		font-size: 20px;
+    	}
+    	#btn2:hover{
+    		background-color: lightblue;
+    	}
+    	#text {
+    		font-family: Helvetica;
+    		font-weight: lighter;
+    		font-size: 20px;
+    		visibility: hidden;
+    	}
     </style>
 </head>
 <body>
@@ -30,6 +50,23 @@
 	<button id='btn'>Generate A Random Number</button>
 	<br><br>
 	<p id='rand_list'></p>
+	<br><br><br><br><br><br><br><br><br><br><br><br>
+	<button id='btn2'>Experiencing Problems? Click here</button>
+	<p id='text'>
+		1.) If no numbers are generated it is because your browser blocked this script that the generator needs in order to generate numbers:
+		<br><br>
+		- http://api.open-notify.org/iss-now.json (The main page is http://api.open-notify.org)
+		<br><br>
+		This is because it is http not https. To solve this, give permission to your browser to load the script by following this instructions:
+		<br><br>
+		For <b>chrome</b>: https://superuser.com/questions/487748/how-to-allow-chrome-browser-to-load-insecure-content
+		<br><br>
+		For <b>safari</b>: https://presentations.akamaized.net/Help/VTS/ShowMe/ProblemsBeforeLogin/ShowMeSafariMixedContent.htm
+		<br><br>
+		For <b>mozilla</b>: https://support.mozilla.org/en-US/kb/mixed-content-blocking-firefox
+		<br><br>
+		2.) It is recommended to click the "generate number" button every 3 seconds or more to get numbers that are very random
+	</p>
 </center>
 </body>
     <script type="text/javascript">
@@ -69,5 +106,12 @@
 			})
 		});
 		}
+
+		// shows a text of possible problems a user might have with the rng
+
+		btn2.onclick = function() {
+			text.style.visibility = 'visible';
+		}
+
     </script>
 </html>
