@@ -2,7 +2,9 @@
 
 Author: George Valtas
 
-A script that find the period lenght
+2018
+
+A script that finds the period length
 of a linear congruential generator.
 
 */
